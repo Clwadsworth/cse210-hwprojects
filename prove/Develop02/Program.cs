@@ -9,41 +9,42 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("\nPlease select one of the following choices: ");
+            // A nice, easygoing menu to interact with
+            Console.WriteLine("\nLet's start with one of these choices: ");
             Console.WriteLine("1 - Write a new entry");
             Console.WriteLine("2 - Display the journal");
-            Console.WriteLine("3 - Save the journal to a file");
-            Console.WriteLine("4 - Load the journal from a file");
+            Console.WriteLine("3 - Save my record to a file");
+            Console.WriteLine("4 - Load my record from a file");
             Console.WriteLine("5 - Quit");
-            Console.Write("What would you like to do? ");
+            Console.Write("Where would you like to start? ");
 
             string choice = Console.ReadLine();
-
+            // Starting with the selections
             if (choice == "1")
             {
-                journal.AddEntry();
+                journal.Record();
             }
             else if (choice == "2")
             {
-                journal.DisplayAll();
+                journal.OpenJournal();
             }
             else if (choice == "3")
             {
-                journal.SaveToFile();
+                journal.InkToPaper();
             }
             else if (choice == "4")
             {
-                journal.LoadFromFile();
+                journal.PaperToScreen();
             }
             else if (choice == "5")
             {
-                Console.WriteLine("Goodbye");
+                Console.WriteLine("Thank you! and have a good rest of the day!");
                 break;
             }
             else
             {
                 {
-                    Console.WriteLine("Invalid choice, please try again.");
+                    Console.WriteLine("I don't understand, please try again.");
                 }
             }
         }

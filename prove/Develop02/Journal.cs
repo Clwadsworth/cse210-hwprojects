@@ -1,7 +1,7 @@
 public class Journal
 {
 	private List<Entry> _entries = new List<Entry>();
-	
+	// A list of prompts that should spark the interest. Trying to be thoughtful.
 	private List<string> _prompts = new List<string>
 	{
 		"Who was the most interesting person I interacted with today?",
@@ -13,31 +13,34 @@ public class Journal
 		"Was there an event or saying that stuck out in your mind?",
 		"Who impressed you the most today?",
 		"What is the highlight of your day?",
+		"Did you have a spiritual thought on your mind?",
 	};
 	
-	public void AddEntry()
+	public void Record()
 	{
-		Random random = new Random();
-		int index = random.Next(_prompts.Count);
+		// allows the program to pull a prompt when it is requested.
+		Random rand = new Random();
+		int index = rand.Next(_prompts.Count);
 		string prompt = _prompts[index];
 		
 		Console.WriteLine($"\nPrompt: {prompt}");
-		Console.Write("Your response: ");
-		string response = Console.ReadLine();
+		Console.Write("Your record states: ");
+		string record = Console.ReadLine();
 
 		string date = DateTime.Now.ToShortDateString();
-	
-		Entry newEntry = new Entry(prompt, response, date);
-		_entries.Add(newEntry);
-
-		Console.WriteLine("Entry added!");
+		//  formats the prompt to a saved location for future pulls.
+		Entry newPrompt = new Entry(prompt, record, date);
+		_entries.Add(newPrompt);
+		// response to saving the entry
+		Console.WriteLine("Your thoughts has been recorded!");
 	}
 
-	public void DisplayAll()
+	public void OpenJournal()
 	{
+		// a friendly response to not having any entries
 		if (_entries.Count == 0)
 		{
-			Console.WriteLine("No entries yet!");
+			Console.WriteLine("Your Journal seems to be empty!");
 		}		
 		else
 		{
@@ -48,9 +51,10 @@ public class Journal
 		}
 	}
 
-	public void SaveToFile()
+	public void InkToPaper()
 	{
-		Console.Write("Enter filename: ");
+		// Needs a way to pull or record the journal entry
+		Console.Write("Enter file location: ");
 		string filename = Console.ReadLine();
 	
 		using (StreamWriter outputFile = new StreamWriter(filename))
@@ -60,31 +64,32 @@ public class Journal
 				outputFile.WriteLine(entry.ToFileString());
 			}
 		}
-		
-		Console.WriteLine("Journal saved!");
+		// friendly response
+		Console.WriteLine("Journal has been written down!");
 	}
 
-	public void LoadFromFile()
+	public void PaperToScreen()
 	{
-		Console.Write("Enter filename: ");
+		// load from a save file of choosing
+		Console.Write("Enter file location: ");
 		string filename = Console.ReadLine();
 	
 		_entries.Clear();
 		
 		string[] lines = System.IO.File.ReadAllLines(filename);
-
+		// added dividers from easy reading 
 		foreach (string line in lines)
 		{
 			string[] parts = line.Split('|');
 
 			string date = parts[0];
 			string prompt = parts[1];
-			string response = parts[2];
+			string record = parts[2];
 
-			Entry newEntry = new Entry(prompt, response, date);
-			_entries.Add(newEntry);
+			Entry newPrompt = new Entry(prompt, record, date);
+			_entries.Add(newPrompt);
 		}
-	
-		Console.WriteLine("Journal loaded!");
+		//  friendly response
+		Console.WriteLine("Journal has been recorded!");
 	}
 }
