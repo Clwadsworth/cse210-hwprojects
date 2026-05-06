@@ -26,5 +26,30 @@ public class Fraction
         _botNumber = denominator;
     }
 
+    // putting together the setters and getters
+    // start with the getter for the numerator
+    public int GetNumerator()
+    {
+        return _topNumber;
+    }
+
+    // and now the setter for the numerator
+    public void SetNumerator(int numerator)
+    {
+        _topNumber = numerator;
+    }
+
+    // Now the getter for the denominator
+    public int GetDenominator()
+    {
+        return _botNumber;
+    }
+
+    // finally the setter for the denominator
+    public void SetDenominator(int denominator)
+    {
+        _botNumber = denominator;
+    }
+
 }
 
