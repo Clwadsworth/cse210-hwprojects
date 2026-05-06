@@ -51,5 +51,15 @@ public class Fraction
         _botNumber = denominator;
     }
 
+    // Now adding the string to assemble the fractions
+    public string GetFractionString()
+    {
+        return _topNumber + "/" + _botNumber;
+    }
+
+    public double GetDecimalValue()
+    {
+        return (double)_topNumber / _botNumber;
+    }
 }
 
