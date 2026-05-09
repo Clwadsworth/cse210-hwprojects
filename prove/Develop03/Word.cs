@@ -5,6 +5,12 @@ public class Word
     private bool _isHidden;
 
     // This is how we will determine true and false with words that are hidden
+    public Word(string text)
+    {
+        _text = text;
+        _isHidden = false;
+    }
+    
     public void Hide()
     {
         _isHidden = true;
@@ -13,6 +19,11 @@ public class Word
     public void Show()
     {
         _isHidden = false;
+    }
+
+    public bool IsHidden()
+    {
+        return _isHidden;
     }
 
     public string GetRenderedText()
