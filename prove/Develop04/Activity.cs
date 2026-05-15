@@ -42,6 +42,23 @@ public class Activity
     // the ending message for each activity
     public void DisplayEndMessage()
     {
-        
+        Console.WriteLine($"Good job! You did excellent!");
+        Console.WriteLine($"You did {_name} for {_duration} seconds.");
+        Thread.Sleep(3000);
+    }
+
+    // Here is the spinner that we need to add for waiting times
+    public void ShowSpinner(int seconds)
+    {
+        string[] spinner = { "|", "/", "-", "\\"};
+        DateTime endTime = DateTime.Now.AddSeconds(seconds);
+        int i = 0;
+        while (DateTime.Now < endTime)
+        {
+            Console.Write(spinner[i % spinner.Length]);
+            Thread.Sleep(250);
+            Console.Write("\b \b");
+            i++;
+        }
     }
 }
