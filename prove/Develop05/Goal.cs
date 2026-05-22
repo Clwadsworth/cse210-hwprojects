@@ -35,4 +35,10 @@ public abstract class Goal
 
     public abstract string GetStringRepresentation();
 
+    // Adding code to get the points for child classes
+    public int GetPoints()
+    {
+        return _points;
+    }
+
 }
