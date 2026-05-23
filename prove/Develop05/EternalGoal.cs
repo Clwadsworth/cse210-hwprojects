@@ -6,9 +6,10 @@ public class EternalGoal : Goal
         
     }
     // The following pushes the override to the main goal class
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
         Console.WriteLine($"Nice job! You earned {GetPoints()} points!");
+        return GetPoints();
     }
 
     public override bool IsComplete()
@@ -23,6 +24,6 @@ public class EternalGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"EternalGoal:{GetFieldName()},{GetDetailsString().Split('(')[1].Split(')')[0]},{GetPoints()}";
     }
 }

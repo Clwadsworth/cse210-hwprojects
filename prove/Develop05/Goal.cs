@@ -13,7 +13,7 @@ public abstract class Goal
     }
 
     // This is where our polymorphism starts
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
     public abstract bool IsComplete();
 
     public virtual string GetDetailsString()
