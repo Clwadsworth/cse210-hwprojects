@@ -14,8 +14,7 @@ class Program
             "An evening with the newly wedded couple",
             "July 24th, 2017",
             "3:30 pm",
-            reception1,
-            "smithandco@hotmail.com"
+            reception1,"smithandco@hotmail.com"
         );
 
         Lectures lecture = new Lectures(
@@ -36,5 +35,19 @@ class Program
             gathering1,
             "80F, with slight breeze"
         );
+        Console.WriteLine("\n---Reception---");
+        Console.WriteLine(reception.GetStandardDetails());
+        Console.WriteLine(reception.GetShortDescription());
+        Console.WriteLine(reception.GetReceptionsDetails());
+
+        Console.WriteLine("\n---Lecture---");
+        Console.WriteLine(lecture.GetStandardDetails());
+        Console.WriteLine(lecture.GetShortDescription());
+        Console.WriteLine(lecture.GetLectureDetails());
+
+        Console.WriteLine("\n---Gathering---");
+        Console.WriteLine(gathering.GetStandardDetails());
+        Console.WriteLine(gathering.GetShortDescription());
+        Console.WriteLine(gathering.GetOutdoorDetails());
     }
 }

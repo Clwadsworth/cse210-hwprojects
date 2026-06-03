@@ -10,7 +10,7 @@ public class Lectures : Event
         _capacity = capacity;
     }
 
-    public string GetLuctureDetails()
+    public string GetLectureDetails()
     {
         return $"{_speakerName} with attendance of {_capacity}";
     }

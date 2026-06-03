@@ -20,25 +20,25 @@ public class Event
             {
                 _ = i switch
                 {
-                    0 => Street = arguments[0].ToLower(),
-                    1 => City = arguments[1].ToLower(),
-                    2 => State = arguments[2].ToLower(),
-                    3 => ZipCode = arguments[3].ToLower(),
-                    4 => Country = arguments[4].ToLower(),
+                    0 => Street = arguments[0].ToUpper(),
+                    1 => City = arguments[1].ToUpper(),
+                    2 => State = arguments[2].ToUpper(),
+                    3 => ZipCode = arguments[3],
+                    4 => Country = arguments[4].ToUpper(),
                     _ => throw new ArgumentException($"Unexpected argument " + $"'{arguments[i]}'")
                 };
             }
         }
         // additional attributtes that help flesh out the GetAddress()
-        public string? Street { get; }
-        public string? City { get; }
-        public string? State { get; }
-        public string? ZipCode { get; }
-        public string? Country { get; }
+        public string Street { get; }
+        public string City { get; }
+        public string State { get; }
+        public string ZipCode { get; }
+        public string Country { get; }
 
         public string GetAddress()
         {
-            return $"{Street}, {City}, {State} {ZipCode}, {Country}";
+            return $"{Street}, {City},\n{State} {ZipCode}, {Country}\n";
         }
 
     }
@@ -55,7 +55,7 @@ public class Event
 
     public string GetStandardDetails()
     {
-        return $"{_eventTitle}: at {_date}-{_time}: {_address.GetAddress()}";
+        return $"{_eventTitle} {_date}-{_time}\n{_address.GetAddress()}";
     }
 
     public string GetShortDescription()
