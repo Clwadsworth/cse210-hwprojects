@@ -1,0 +1,41 @@
+using System.Diagnostics.Contracts;
+using System.Globalization;
+
+public abstract class Activity
+{
+    private string _dateInput;
+    private int _minRecorded;
+    // main function
+    public Activity(string date, int minutes)
+    {
+        _dateInput = date;
+        _minRecorded = minutes;
+    }
+
+    public int GetMinutes()
+    {
+        return _minRecorded;
+    }
+
+    public string GetDate()
+    {
+        return _dateInput;
+    }
+    // provided from other classes
+    public virtual double GetDistance()
+    {
+        return 0;
+    }
+    // provided from other classes
+    public virtual double GetSpeed()
+    {
+        return 0;
+    }
+    // provided from other classes
+    public virtual double GetPace()
+    {
+        return 0;
+    }
+    // needed to come from other classes
+    public abstract string GetSummary();
+}
