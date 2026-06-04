@@ -21,10 +21,5 @@ public class Running : Activity
     {
         return GetMinutes() / _distanceRan;
     }
-    // complete summary for running
-    public override string GetSummary()
-    {
-        return $"{GetDate()} \nRan for: {GetMinutes()} \nFor a distance of: {GetDistance():F1} miles \nRunning at: {GetSpeed():F1} mph \nAt a pacing of: {GetPace():F1} minutes per mile";
-    }
-    
+
 }

@@ -1,5 +1,3 @@
-using System.Diagnostics.Contracts;
-
 public class Cycling : Activity
 {
     private double _speedInMph;
@@ -23,10 +21,5 @@ public class Cycling : Activity
     {
         return 60 / _speedInMph;
     }
-    // our main override for the summary call
-    public override string GetSummary()
-    {
-        return $"{GetDate()} \nCycled for: {GetMinutes()} \nFor a distance of: {GetDistance():F1} miles \nMoving at: {GetSpeed():F1} mph \nAt a pacing of: {GetPace():F1} minutes per mile";;
-    }
-   
+
 }

@@ -1,6 +1,3 @@
-using System.Diagnostics.Contracts;
-using System.Globalization;
-
 public abstract class Activity
 {
     private string _dateInput;
@@ -37,5 +34,9 @@ public abstract class Activity
         return 0;
     }
     // needed to come from other classes
-    public abstract string GetSummary();
+    // code help from https://essentialcsharp.com/home 
+    public virtual string GetSummary()
+    {
+        return $"{GetDate()} {this.GetType().Name} ({GetMinutes()} min): {GetSpeed():F1} mph, Pace: {GetPace():F1} min per mile";
+    }
 }
