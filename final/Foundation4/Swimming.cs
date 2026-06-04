@@ -9,8 +9,7 @@ public class Swimming : Activity
 
     public override double GetDistance()
     {
-        double mph = _lapsSwam * 50 / 1000;
-        return mph * 0.62;
+        return _lapsSwam * 50.0 / 1000.0 * 0.62;
     }
 
     public override double GetSpeed()

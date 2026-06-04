@@ -37,6 +37,9 @@ public abstract class Activity
     // code help from https://essentialcsharp.com/home 
     public virtual string GetSummary()
     {
-        return $"{GetDate()} {this.GetType().Name} ({GetMinutes()} min): {GetSpeed():F1} mph, Pace: {GetPace():F1} min per mile";
+        return $"{GetDate()} {GetType().Name} ({GetMinutes()} min): " +
+        $"Distance {GetDistance():F1} miles" +
+        $"Speed {GetSpeed():F1} mph, " +
+        $"Pace {GetPace():F1} min per mile";
     }
 }
