@@ -21,24 +21,24 @@ public abstract class Activity
     // provided from other classes
     public virtual double GetDistance()
     {
-        return 0;
+        return 0.0;
     }
     // provided from other classes
     public virtual double GetSpeed()
     {
-        return 0;
+        return 0.0;
     }
     // provided from other classes
     public virtual double GetPace()
     {
-        return 0;
+        return 0.0;
     }
     // needed to come from other classes
     // code help from https://essentialcsharp.com/home 
     public virtual string GetSummary()
     {
         return $"{GetDate()} {GetType().Name} ({GetMinutes()} min): " +
-        $"Distance {GetDistance():F1} miles" +
+        $"Distance {GetDistance():F1} miles, " +
         $"Speed {GetSpeed():F1} mph, " +
         $"Pace {GetPace():F1} min per mile";
     }
